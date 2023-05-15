@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: radio
+  name: radio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: radio
+  template:
+    metadata:
+      labels:
+        app: radio
+    spec:
+      containers:
+      - image: deploy-2023-05-15-2
+        name: deploy-2023-05-15-2
+        resources: {}
+        imagePullPolicy: Never
