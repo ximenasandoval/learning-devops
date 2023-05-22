@@ -3,20 +3,26 @@
 ```
 minikube start
 ```
-
 - Create `jenkins` namespace
 ```
-kubectl apply -f jenkins/jenkins-namespace.yml
+kubectl apply -f jenkins-namespace.yml
 ```
 
-- Create `jenkins` deployment
+- Install Jenkins via Helm
 ```
-kubectl apply -f jenkins/jenkins-deployment.yml
+helm repo add jenkins https://charts.jenkins.io
+helm repo update
+helm install jenkins jenkins/jenkins -n jenkins
 ```
 
-- Create `jenkins` service
+- Create service
 ```
-kubectl apply -f jenkins/jenkins-service.yml
+kubectl apply -f jenkins-service.yml
+```
+
+- Get admin password
+```
+kubectl exec --namespace jenkins -it svc/jenkins -c jenkins -- /bin/cat /run/secrets/additional/chart-admin-password && echo
 ```
 
 # Access Jenkins
@@ -24,10 +30,9 @@ kubectl apply -f jenkins/jenkins-service.yml
 ```
 minikube service jenkins -n jenkins --url
 ```
-If it is the first time accessing Jenkins, you'll need the admin password, you can get if from the pod logs:
-```
-kubectl get pods -n jenkins
-kubectl logs <pod name> -n jenkins
-```
 
-For more information, you can check [this documentation](https://www.jenkins.io/doc/book/installing/kubernetes/#install-jenkins-with-yaml-files)
+# Access Jenkins container
+```
+eval $(minikube docker-env)
+docker ps | grep jenkins
+```
