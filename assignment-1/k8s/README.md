@@ -24,6 +24,7 @@ minikube dashboard
 ```
 
 # Create a deployment
+Check for the tag of the Docker image created for the `app`, and update the deployment file
 ```
 kubectl apply -f radio-deployment.yml
 ```
