@@ -6,3 +6,4 @@ and apply DevOps practices:
 - Assignment 2: Vault integration for sample app
 - Assignment 3: Jenkins integration for sample app
 - Assignment 4: ArgoCD integration for sample app
+- Assignment 5: Elastic Stack for sample app
