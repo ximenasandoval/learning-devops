@@ -39,3 +39,4 @@ minikube tunnel
 ```
 kubectl apply -f radio-service.yml
 ```
+After this, you can access the app in `localhost:5000`
