@@ -26,7 +26,8 @@ minikube dashboard
 # Create a deployment
 Check for the tag of the Docker image created for the `app`, and update the deployment file
 ```
-kubectl apply -f radio-deployment.yml
+# This is assuming you have `learning-devops-argocd-configs` repo cloned
+kubectl apply -f ../../../learning-devops-argocd-configs/development/sample-app/radio.yml
 ```
 
 # Create a minikube tunnel
