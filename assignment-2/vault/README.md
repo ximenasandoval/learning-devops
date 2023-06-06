@@ -3,7 +3,7 @@
 - Create `vault` namespace
 ```
 alias k=kubectl
-k apply -f vault-namespace.yml
+k create ns vault
 ```
 
 ## Installing Vault using Helm
