@@ -35,6 +35,8 @@ kubectl exec vault-0 -n vault -- vault operator unseal $VAULT_UNSEAL_KEY
 kubectl exec -ti vault-1 -n vault -- vault operator unseal $VAULT_UNSEAL_KEY
 kubectl exec -ti vault-2 -n vault -- vault operator unseal $VAULT_UNSEAL_KEY
 
+echo Restarting radio deployment
+kubectl rollout restart deployment/radio
 
 echo 
 echo Useful commands
